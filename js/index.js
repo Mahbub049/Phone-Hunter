@@ -8,6 +8,16 @@ const dataLoad = async(searchText) => {
 const displayPhones = (phones) =>{
     const phoneContainer = document.getElementById('phoneContainer');
     phoneContainer.innerHTML = ``;
+
+    const showAll = document.getElementById('showAll');
+    if(phones.length > 6){
+        showAll.classList.remove('hidden');
+    }
+    else{
+        showAll.classList.add('hidden');
+    }
+
+    phones = phones.slice(0,6);
     phones.forEach(phone => {
        const phoneDiv = document.createElement('div');
        phoneDiv.classList = `card bg-base-100 shadow-xl border-[#CFCFCF] border-2`;
